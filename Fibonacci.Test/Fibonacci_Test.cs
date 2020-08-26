@@ -8,12 +8,21 @@ namespace Fibonacci.Test
     [TestClass]
     public class Fibonacci_Test
     {
+        private delegate long del_Fibonacci(int n);
+
+
         [TestMethod]
-        public void FibonacciBine_long_OneValue()
+        public void FibonacciBine_long_OneInputValue()
+            => Fibonacci_OneInputValue(Fibonacci.FibonacciBine_long);
+
+        [TestMethod]
+        public void FibonacciApproximation_long_OneInputValue()
+            => Fibonacci_OneInputValue(Fibonacci.FibonacciApproximation_long);
+
+        private static void Fibonacci_OneInputValue(del_Fibonacci fib)
         {
             // avarrage
-            int minN = -8,
-                maxN = 20;
+            int minN = -8, maxN = 20;
 
             int[] stub = new int[maxN - minN + 1];
 
@@ -38,7 +47,7 @@ namespace Fibonacci.Test
             long[] actual = new long[stub.Length];
 
             for (int i = 0; i < stub.Length; i++)
-                actual[i] = Fibonacci.FibonacciBine_long(stub[i]);
+                actual[i] = fib(stub[i]);
 
             str.Append("\n\nActual:\n");
             foreach (var i in actual)
@@ -50,5 +59,7 @@ namespace Fibonacci.Test
 
             Debug.WriteLine(str.ToString());
         }
+
+
     }
 }
