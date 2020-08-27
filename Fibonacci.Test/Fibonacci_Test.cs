@@ -115,39 +115,44 @@ namespace Fibonacci.Test
         public void CompareFibMethods()
         {
             // avarrage
+            int[] stub = new int[101];
+
+            for (int i = 0; i < stub.Length; i++)
+                stub[i] = i;
+
             // act
             Stopwatch timer = new Stopwatch();
 
             timer.Start();
-            for (int i = 0; i < Stub.Length; i++)
-                Fibonacci.FibonacciBine(Stub[i]);
+            for (int i = 0; i < stub.Length; i++)
+                Fibonacci.FibonacciBine(stub[i]);
             timer.Stop();
 
             Debug.WriteLine($"\nBinet's formula: {timer.Elapsed.TotalMilliseconds} ms\n");
 
             timer.Restart();
-            for (int i = 0; i < Stub.Length; i++)
-                Fibonacci.FibonacciApproximation(Stub[i]);
+            for (int i = 0; i < stub.Length; i++)
+                Fibonacci.FibonacciApproximation(stub[i]);
             timer.Stop();
             Debug.WriteLine($"Approximation formula: {timer.Elapsed.TotalMilliseconds} ms\n");
 
             timer.Restart();
-            Fibonacci.FibonacciBine(Stub);
+            Fibonacci.FibonacciBine(stub);
             timer.Stop();
             Debug.WriteLine($"Binet's formula (array): {timer.Elapsed.TotalMilliseconds} ms\n");
 
             timer.Restart();
-            Fibonacci.FibonacciApproximation(Stub);
+            Fibonacci.FibonacciApproximation(stub);
             timer.Stop();
             Debug.WriteLine($"Approximation formula (array): {timer.Elapsed.TotalMilliseconds} ms\n");
 
             timer.Restart();
-            Fibonacci.FibonacciBine_Par(Stub);
+            Fibonacci.FibonacciBine_Par(stub);
             timer.Stop();
             Debug.WriteLine($"Binet's formula (parallel): {timer.Elapsed.TotalMilliseconds} ms\n");
 
             timer.Restart();
-            Fibonacci.FibonacciApproximation_Par(Stub);
+            Fibonacci.FibonacciApproximation_Par(stub);
             timer.Stop();
             Debug.WriteLine($"Approximation formula (parallel): {timer.Elapsed.TotalMilliseconds} ms\n");
 
