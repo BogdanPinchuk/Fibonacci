@@ -410,13 +410,11 @@ namespace Fibonacci.Test
             foreach (var i in stub)
                 Fibonacci.FibonacciBine(i);
             timer.Stop();
-
             Debug.WriteLine($"\nBinet's formula: {timer.Elapsed.TotalMilliseconds} ms\n");
 
             timer.Restart();
             foreach (var i in stub)
                 Fibonacci.FibonacciApproximation(i);
-
             timer.Stop();
             Debug.WriteLine($"Approximation formula: {timer.Elapsed.TotalMilliseconds} ms\n");
 
