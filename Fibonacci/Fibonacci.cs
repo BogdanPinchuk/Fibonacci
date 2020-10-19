@@ -247,7 +247,7 @@ namespace Fibonacci
         }
 
         /// <summary>
-        /// Slow calculate but accurate result, can calculate absolute value more 70
+        /// Slow calculate but accurate result, can calculate absolute value more then 70
         /// </summary>
         /// <param name="n">value</param>
         /// <returns>Fibonacci number</returns>
@@ -304,7 +304,7 @@ namespace Fibonacci
         }
 
         /// <summary>
-        /// Slow calculate but accurate result, can calculate absolute value more 70
+        /// Slow calculate but accurate result, can calculate absolute value more then 70
         /// </summary>
         /// <param name="n">value</param>
         /// <returns>Fibonacci number</returns>
@@ -344,7 +344,7 @@ namespace Fibonacci
         }
 
         /// <summary>
-        /// Fast calculate but accurate result, can calculate absolute value more 70, uning Queuen
+        /// Fast calculate but accurate result, can calculate absolute value more then 70, uning Queuen
         /// </summary>
         /// <param name="n">value</param>
         /// <returns>Fibonacci number</returns>
@@ -393,7 +393,7 @@ namespace Fibonacci
         }
 
         /// <summary>
-        /// Fast calculate but accurate result, can calculate absolute value more 70, uning Queuen
+        /// Fast calculate but accurate result, can calculate absolute value more then 70, uning Queuen
         /// </summary>
         /// <param name="n">value</param>
         /// <returns>Fibonacci number</returns>
@@ -442,7 +442,7 @@ namespace Fibonacci
         }
 
         /// <summary>
-        /// Fast calculate but accurate result, can calculate absolute value more 70, uning 2 values
+        /// Fast calculate but accurate result, can calculate absolute value more then 70, uning 2 values
         /// </summary>
         /// <param name="n">value</param>
         /// <returns>Fibonacci number</returns>
@@ -483,7 +483,7 @@ namespace Fibonacci
         }
 
         /// <summary>
-        /// Fast calculate but accurate result, can calculate absolute value more 70, uning 2 values
+        /// Fast calculate but accurate result, can calculate absolute value more then 70, uning 2 values
         /// </summary>
         /// <param name="n">value</param>
         /// <returns>Fibonacci number</returns>

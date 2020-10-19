@@ -371,7 +371,7 @@ namespace Fibonacci.Test
             expected = actual = default;
 
             // for Approximation formula
-            for (maxN = 0; Equals(expected, actual); maxN++)
+            for (maxN = 0; expected == actual; maxN++)
             {
                 expected = Fibonacci.FibonacciSlow(maxN);
                 actual = (BigInteger)Fibonacci.FibonacciApproximation(maxN);
