@@ -458,9 +458,16 @@ namespace Fibonacci.Test
 
             timer.Restart();
             foreach (BigInteger i in stub)
+                Fibonacci.FibonacciFastQueuen(i);
+            timer.Stop();
+            Debug.WriteLine($"Fast calculate using Queuen (BigInteger): {timer.Elapsed.TotalMilliseconds} ms\n");
+
+            timer.Restart();
+            foreach (BigInteger i in stub)
                 Fibonacci.FibonacciFast(i);
             timer.Stop();
-            Debug.WriteLine($"Fast calculate (BigInteger): {timer.Elapsed.TotalMilliseconds} ms\n");
+            Debug.WriteLine($"Fast calculate using 2 values (BigInteger): {timer.Elapsed.TotalMilliseconds} ms\n");
+
         }
 
     }

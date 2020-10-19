@@ -393,11 +393,11 @@ namespace Fibonacci
         }
 
         /// <summary>
-        /// Slow calculate but accurate result, can calculate absolute value more 70
+        /// Slow calculate but accurate result, can calculate absolute value more 70, uning Queuen
         /// </summary>
         /// <param name="n">value</param>
         /// <returns>Fibonacci number</returns>
-        public static unsafe BigInteger FibonacciFast(BigInteger n)
+        public static unsafe BigInteger FibonacciFastQueuen(BigInteger n)
         {
             // absolutely value of n 
             BigInteger value = BigInteger.Abs(n);
@@ -436,6 +436,47 @@ namespace Fibonacci
                 result = neighbor.Dequeue() + neighbor.Dequeue();
                 neighbor.Enqueue(result);
                 neighbor.Enqueue(result);
+            }
+
+            return (n > 0) ? result : sign * result;
+        }
+
+        /// <summary>
+        /// Slow calculate but accurate result, can calculate absolute value more 70, uning 2 values
+        /// </summary>
+        /// <param name="n">value</param>
+        /// <returns>Fibonacci number</returns>
+        public static unsafe BigInteger FibonacciFast(BigInteger n)
+        {
+            // absolutely value of n 
+            BigInteger value = BigInteger.Abs(n);
+
+            // fast answer or start data for calculate
+            if (value == 0)
+                return 0;
+            else if (value == 1)
+                return 1;
+            else if (value == 2)
+                return (n > 0) ? 1 : -1;
+
+            // sing of result : Math.Pow(-1, value + 1)
+            int sign = (value % 2 == 0) ? -1 : 1;
+
+            if (value <= 70)
+                return (BigInteger)((n > 0) ?
+                    FibonacciApproximation((int)value) : sign * FibonacciApproximation((int)value));
+
+            BigInteger first = (BigInteger)FibonacciApproximation(69),
+                second = (BigInteger)FibonacciApproximation(70);
+
+            // calculate use base method
+            BigInteger result = default;
+
+            for (BigInteger i = 70; i < value; i++)
+            {
+                result = first + second;
+                first = second;
+                second = result;
             }
 
             return (n > 0) ? result : sign * result;
