@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Fibonacci</name>
+    </assembly>
+    <members>
+        <member name="T:Fibonacci.Fibonacci">
+            <summary>
+            Fibonacci number
+            </summary>
+        </member>
+        <member name="M:Fibonacci.Fibonacci.FibonacciBine(System.Int32)">
+            <summary>
+            Binet's formula
+            </summary>
+            <param name="n">value</param>
+            <returns>Fibonacci number</returns>
+        </member>
+        <member name="M:Fibonacci.Fibonacci.FibonacciBine(System.Int32[])">
+            <summary>
+            Binet's formula
+            </summary>
+            <param name="array">array value</param>
+            <returns>array Fibonacci number</returns>
+        </member>
+        <member name="M:Fibonacci.Fibonacci.FibonacciBine_Par(System.Int32[])">
+            <summary>
+            Binet's formula using parallel calculations
+            </summary>
+            <param name="array">array value</param>
+            <returns>array Fibonacci number</returns>
+        </member>
+        <member name="M:Fibonacci.Fibonacci.FibonacciApproximation(System.Int32)">
+            <summary>
+            Approximation formula
+            </summary>
+            <param name="n">value</param>
+            <returns>Fibonacci number</returns>
+        </member>
+        <member name="M:Fibonacci.Fibonacci.FibonacciApproximation(System.Int32[])">
+            <summary>
+            Approximation formula
+            </summary>
+            <param name="array">array value</param>
+            <returns>array Fibonacci number</returns>
+        </member>
+        <member name="M:Fibonacci.Fibonacci.FibonacciApproximation_Par(System.Int32[])">
+            <summary>
+            Approximation formula using parallel calculations
+            </summary>
+            <param name="array">array value</param>
+            <returns>array Fibonacci number</returns>
+        </member>
+        <member name="M:Fibonacci.Fibonacci.FibonacciSlow(System.Int32)">
+            <summary>
+            Slow calculate but accurate result, can calculate absolute value more 70
+            </summary>
+            <param name="n">value</param>
+            <returns>Fibonacci number</returns>
+        </member>
+        <member name="M:Fibonacci.Fibonacci.FibonacciSlow(System.Numerics.BigInteger)">
+            <summary>
+            Slow calculate but accurate result, can calculate absolute value more 70
+            </summary>
+            <param name="n">value</param>
+            <returns>Fibonacci number</returns>
+        </member>
+        <member name="M:Fibonacci.Fibonacci.FibonacciFastQueuen(System.Int32)">
+            <summary>
+            Fast calculate but accurate result, can calculate absolute value more 70, uning Queuen
+            </summary>
+            <param name="n">value</param>
+            <returns>Fibonacci number</returns>
+        </member>
+        <member name="M:Fibonacci.Fibonacci.FibonacciFastQueuen(System.Numerics.BigInteger)">
+            <summary>
+            Fast calculate but accurate result, can calculate absolute value more 70, uning Queuen
+            </summary>
+            <param name="n">value</param>
+            <returns>Fibonacci number</returns>
+        </member>
+        <member name="M:Fibonacci.Fibonacci.FibonacciFast(System.Int32)">
+            <summary>
+            Fast calculate but accurate result, can calculate absolute value more 70, uning 2 values
+            </summary>
+            <param name="n">value</param>
+            <returns>Fibonacci number</returns>
+        </member>
+        <member name="M:Fibonacci.Fibonacci.FibonacciFast(System.Numerics.BigInteger)">
+            <summary>
+            Fast calculate but accurate result, can calculate absolute value more 70, uning 2 values
+            </summary>
+            <param name="n">value</param>
+            <returns>Fibonacci number</returns>
+        </member>
+    </members>
+</doc>

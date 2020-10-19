@@ -6,6 +6,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>d:\Documents\Documents\Visual Studio 2019\Math\Fibonacci\Fibonacci\Fibonacci.xml</DocumentationFile>
   </PropertyGroup>
 
 </Project>
