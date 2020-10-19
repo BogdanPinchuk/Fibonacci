@@ -166,7 +166,7 @@ namespace Fibonacci.Test
 
         [TestMethod]
         public void FibonacciFast_OneInputValue()
-            => Fibonacci_OneInputValue(Fibonacci.FibonacciFast);
+            => Fibonacci_OneInputValue(Fibonacci.FibonacciFastQueuen);
 
 
         private void Fibonacci_OneInputValue(del_Fibonacci<double, int> fib)
@@ -298,6 +298,10 @@ namespace Fibonacci.Test
         [TestMethod]
         public void Fibonacci_Slow_OneInputValue_Par_0_93()
             => Fibonacci_OneInputValue_Par_0_93(Fibonacci.FibonacciSlow);
+
+        [TestMethod]
+        public void Fibonacci_FastQueuen_OneInputValue_Par_0_93()
+            => Fibonacci_OneInputValue_Par_0_93(Fibonacci.FibonacciFastQueuen);
 
         [TestMethod]
         public void Fibonacci_Fast_OneInputValue_Par_0_93()
@@ -449,6 +453,12 @@ namespace Fibonacci.Test
                 Fibonacci.FibonacciSlow(i);
             timer.Stop();
             Debug.WriteLine($"Base calculate (BigInteger): {timer.Elapsed.TotalMilliseconds} ms\n");
+
+            timer.Restart();
+            foreach (var i in stub)
+                Fibonacci.FibonacciFastQueuen(i);
+            timer.Stop();
+            Debug.WriteLine($"Fast Queuen calculate: {timer.Elapsed.TotalMilliseconds} ms\n");
 
             timer.Restart();
             foreach (var i in stub)
