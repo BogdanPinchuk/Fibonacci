@@ -44,7 +44,7 @@ namespace Fibonacci
 
             // Golden ratio value
             double phi = 0.5 * (sr5 + 1);
-            double phi_n = checked(Math.Pow(phi, n));
+            double phi_n = Math.Pow(phi, n);
 
             // Result
             double res = (phi_n - Math.Pow(-1, n) / phi_n) / sr5;
@@ -97,7 +97,7 @@ namespace Fibonacci
                         continue;
                     }
 
-                    *_p = checked(Math.Pow(phi, *_a));
+                    *_p = Math.Pow(phi, *_a);
                     *_r = (*_p - Math.Pow(-1, *_a) / *_p) / sr5;
                     *_r = Math.Round(*_r, MidpointRounding.AwayFromZero);
                 }
@@ -135,7 +135,7 @@ namespace Fibonacci
                 else if (Math.Abs(array[i]) == 2)
                     res[i] = (array[i] > 0) ? 1 : -1;
 
-                double phi_n = checked(Math.Pow(phi, array[i]));
+                double phi_n = Math.Pow(phi, array[i]);
                 // Result
                 double result = (phi_n - Math.Pow(-1, array[i]) / phi_n) / sr5;
 
@@ -169,7 +169,7 @@ namespace Fibonacci
             double phi = 0.5 * (sr5 - 1);
 
             // Result
-            double res = checked(((n >= 0) ? Math.Pow(phi + 1, n) : -Math.Pow(-phi, n)) / sr5);
+            double res = ((n >= 0) ? Math.Pow(phi + 1, n) : -Math.Pow(-phi, n)) / sr5;
 
             return Math.Round(res, MidpointRounding.AwayFromZero);
         }
@@ -218,7 +218,7 @@ namespace Fibonacci
                         continue;
                     }
 
-                    *_r = checked(((*_a >= 0) ? Math.Pow(phi + 1, *_a) : -Math.Pow(-phi, *_a)) / sr5);
+                    *_r = ((*_a >= 0) ? Math.Pow(phi + 1, *_a) : -Math.Pow(-phi, *_a)) / sr5;
                     *_r = Math.Round(*_r, MidpointRounding.AwayFromZero);
                 }
             }
@@ -256,7 +256,7 @@ namespace Fibonacci
                     res[i] = (array[i] > 0) ? 1 : -1;
 
                 // Result
-                double result = checked(((array[i] >= 0) ? Math.Pow(phi + 1, array[i]) : -Math.Pow(-phi, array[i])) / sr5);
+                double result = ((array[i] >= 0) ? Math.Pow(phi + 1, array[i]) : -Math.Pow(-phi, array[i])) / sr5;
 
                 res[i] = Math.Round(result, MidpointRounding.AwayFromZero);
             });
