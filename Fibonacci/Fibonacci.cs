@@ -34,6 +34,8 @@ namespace Fibonacci
                 return 0;
             else if (Math.Abs(n) == 1)
                 return 1;
+            else if (Math.Abs(n) == 2)
+                return (n > 0) ? 1 : -1;
             else if (Math.Abs(n) > 70)
                 throw new Exception(error);
 
@@ -89,6 +91,11 @@ namespace Fibonacci
                         *_r = 1;
                         continue;
                     }
+                    else if (Math.Abs(*_a) == 2)
+                    {
+                        *_r = (*_a > 0) ? 1 : -1;
+                        continue;
+                    }
 
                     *_p = checked(Math.Pow(phi, *_a));
                     *_r = (*_p - Math.Pow(-1, *_a) / *_p) / sr5;
@@ -125,6 +132,8 @@ namespace Fibonacci
                     res[i] = 0;
                 else if (Math.Abs(array[i]) == 1)
                     res[i] = 1;
+                else if (Math.Abs(array[i]) == 2)
+                    res[i] = (array[i] > 0) ? 1 : -1;
 
                 double phi_n = checked(Math.Pow(phi, array[i]));
                 // Result
@@ -148,6 +157,8 @@ namespace Fibonacci
                 return 0;
             else if (Math.Abs(n) == 1)
                 return 1;
+            else if (Math.Abs(n) == 2)
+                return (n > 0) ? 1 : -1;
             else if (Math.Abs(n) > 70)
                 throw new Exception(error);
 
@@ -201,6 +212,11 @@ namespace Fibonacci
                         *_r = 1;
                         continue;
                     }
+                    else if (Math.Abs(*_a) == 2)
+                    {
+                        *_r = (*_a > 0) ? 1 : -1;
+                        continue;
+                    }
 
                     *_r = checked(((*_a >= 0) ? Math.Pow(phi + 1, *_a) : -Math.Pow(-phi, *_a)) / sr5);
                     *_r = Math.Round(*_r, MidpointRounding.AwayFromZero);
@@ -236,6 +252,8 @@ namespace Fibonacci
                     res[i] = 0;
                 else if (Math.Abs(array[i]) == 1)
                     res[i] = 1;
+                else if (Math.Abs(array[i]) == 2)
+                    res[i] = (array[i] > 0) ? 1 : -1;
 
                 // Result
                 double result = checked(((array[i] >= 0) ? Math.Pow(phi + 1, array[i]) : -Math.Pow(-phi, array[i])) / sr5);
