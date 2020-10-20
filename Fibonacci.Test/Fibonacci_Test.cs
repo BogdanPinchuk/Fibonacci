@@ -15,19 +15,9 @@ namespace Fibonacci.Test
         private delegate T del_Fibonacci<T, K>(K n);
 
         private int[] Stub
-        {
-            get
-            {
-                int minN = -8, maxN = 20;
-
-                int[] stub = new int[maxN - minN + 1];
-
-                for (int i = 0; i < stub.Length; i++)
-                    stub[i] = minN + i;
-
-                return stub;
-            }
-        }
+            => Enumerable
+            .Range(-8, 21)
+            .ToArray();
 
         private double[] Expected
             => new double[]
@@ -165,8 +155,12 @@ namespace Fibonacci.Test
             => Fibonacci_OneInputValue(Fibonacci.FibonacciSlow);
 
         [TestMethod]
-        public void FibonacciFast_OneInputValue()
+        public void FibonacciFastQueuen_OneInputValue()
             => Fibonacci_OneInputValue(Fibonacci.FibonacciFastQueuen);
+
+        [TestMethod]
+        public void FibonacciFast_OneInputValue()
+            => Fibonacci_OneInputValue(Fibonacci.FibonacciFast);
 
 
         private void Fibonacci_OneInputValue(del_Fibonacci<double, int> fib)
@@ -295,6 +289,7 @@ namespace Fibonacci.Test
         }
 
 
+
         [TestMethod]
         public void Fibonacci_Slow_OneInputValue_Par_0_93()
             => Fibonacci_OneInputValue_Par_0_93(Fibonacci.FibonacciSlow);
@@ -306,6 +301,8 @@ namespace Fibonacci.Test
         [TestMethod]
         public void Fibonacci_Fast_OneInputValue_Par_0_93()
             => Fibonacci_OneInputValue_Par_0_93(Fibonacci.FibonacciFast);
+
+
 
         private void Fibonacci_OneInputValue_Par_0_93(del_Fibonacci<BigInteger, int> fib)
         {
@@ -338,12 +335,12 @@ namespace Fibonacci.Test
             var str = new StringBuilder("\nResult data:\n\n");
 
             // maximum number for other formula which dependes on acurate of "double" type
-            int maxN = 0;
+            int maxN;
 
             BigInteger expected = default,
                 actual = default;
 
-            // for Binet's formula
+            #region for Binet's formula
             for (maxN = 0; expected == actual; maxN++)
             {
                 expected = Fibonacci.FibonacciSlow(maxN);
@@ -367,10 +364,11 @@ namespace Fibonacci.Test
             str.Append($"\n\tnext number: {maxN};\n")
                 .Append($"\texpected value:\t{expected}\n")
                 .Append($"\tactual value:\t{actual}\n");
+            #endregion
 
             expected = actual = default;
 
-            // for Approximation formula
+            #region for Approximation formula
             for (maxN = 0; expected == actual; maxN++)
             {
                 expected = Fibonacci.FibonacciSlow(maxN);
@@ -393,7 +391,8 @@ namespace Fibonacci.Test
             // next value
             str.Append($"\n\tnext number: {maxN};\n")
                 .Append($"\texpected value:\t{expected}\n")
-                .Append($"\tactual value:\t{actual}\n");
+                .Append($"\tactual value:\t{actual}\n"); 
+            #endregion
 
             // present
             Debug.WriteLine(str);
