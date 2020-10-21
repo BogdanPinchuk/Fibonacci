@@ -11,8 +11,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 using System.Reflection.Metadata;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
+[assembly: InternalsVisibleTo("Fibonacci.Test")]
 namespace Fibonacci
 {
     /// <summary>
@@ -20,7 +22,8 @@ namespace Fibonacci
     /// </summary>
     public static class Fibonacci
     {
-        private const string error = "Absolute values more than 70 are not accurate. You should use other method.";
+        internal const string error = 
+            "Absolute values more than 70 are not accurate. You should use other method.";
 
         /// <summary>
         /// Binet's formula

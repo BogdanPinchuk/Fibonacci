@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
@@ -220,43 +221,52 @@ namespace Fibonacci.Test
 
         [TestMethod]
         public void FibonacciBine_OneInputValue_Exception()
-            => Fibonacci_OneInputValueException_(Fibonacci.FibonacciBine);
+            => Fibonacci_OneInputValueException_(Fibonacci.FibonacciBine, Fibonacci.error);
 
         [TestMethod]
         public void FibonacciBine_ArrayValu_Exception()
-            => Fibonacci_ArrayValue_Exception(Fibonacci.FibonacciBine);
+            => Fibonacci_ArrayValue_Exception(Fibonacci.FibonacciBine, Fibonacci.error);
 
         [TestMethod]
         public void FibonacciApproximation_OneInputValue_Exception()
-            => Fibonacci_OneInputValueException_(Fibonacci.FibonacciApproximation);
+            => Fibonacci_OneInputValueException_(Fibonacci.FibonacciApproximation, Fibonacci.error);
 
         [TestMethod]
         public void FibonacciApproximation_ArrayValu_Exception()
-            => Fibonacci_ArrayValue_Exception(Fibonacci.FibonacciApproximation);
+            => Fibonacci_ArrayValue_Exception(Fibonacci.FibonacciApproximation, Fibonacci.error);
 
 
 
-        private void Fibonacci_OneInputValueException_(del_Fibonacci<double, int> fib)
+        private void Fibonacci_OneInputValueException_(del_Fibonacci<double, int> fib, string expected)
         {
             // avarrage
             int[] stub = new int[] { -71, 71 };
+            List<string> actual = new List<string>();
 
-            string expected = "Absolute values more than 70 are not accurate. You should use other method.";
-
-            // act - assert
+            // act
             foreach (var i in stub)
-                Assert.ThrowsException<Exception>(() => fib(i), expected);
+                actual.Add(Assert.ThrowsException<Exception>(() => fib(i)).Message);
+
+            // assert
+            foreach (var i in actual)
+                Assert.AreEqual(expected, i);
+
+            foreach (var i in actual)
+                Debug.WriteLine(i);
         }
 
-        private void Fibonacci_ArrayValue_Exception(del_Fibonacci<double[], int[]> fib)
+        private void Fibonacci_ArrayValue_Exception(del_Fibonacci<double[], int[]> fib, string expected)
         {
             // avarrage
-            int[] stub = new int[] { -71, 71 };
+            int[] stub = new int[] { -71, -50, 0, 50, 71 };
 
-            string expected = "Absolute values more than 70 are not accurate. You should use other method.";
+            // act
+            string actual = Assert.ThrowsException<Exception>(() => fib(stub)).Message;
 
-            // act - assert
-            Assert.ThrowsException<Exception>(() => fib(stub), expected);
+            // assert
+            Assert.AreEqual(expected, actual);
+
+            Debug.WriteLine(actual);
         }
 
 
