@@ -435,8 +435,7 @@ namespace Fibonacci
             int sign = (value % 2 == 0) ? -1 : 1;
 
             if (value <= 70)
-                return (BigInteger)((n > 0) ?
-                    FibonacciApproximation((int)value) : sign * FibonacciApproximation((int)value));
+                return (BigInteger)FibonacciApproximation((int)n);
 
             Queue<BigInteger> neighbor = new Queue<BigInteger>();
 
@@ -484,8 +483,7 @@ namespace Fibonacci
             int sign = (value % 2 == 0) ? -1 : 1;
 
             if (value <= 70)
-                return (BigInteger)((n > 0) ?
-                    FibonacciApproximation(value) : sign * FibonacciApproximation(value));
+                return (BigInteger)FibonacciApproximation(n);
 
             BigInteger first = (BigInteger)FibonacciApproximation(69),
                 second = (BigInteger)FibonacciApproximation(70);
